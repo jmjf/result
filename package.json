@@ -2,20 +2,18 @@
   "name": "@jmjf/result",
   "version": "1.0.0",
   "description": "A simple Result (either) class for TypeScript projects",
-  "types": "dist/main.d.ts",
   "type": "module",
-  "bin": "./dist/bin/cli.cjs",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/main.d.ts",
-        "default": "./dist/main.mjs"
+        "types": "./dist/Result.d.ts",
+        "default": "./dist/Result.mjs"
       },
       "require": {
-        "types": "./dist/main.d.cts",
-        "default": "./dist/main.cjs"
+        "types": "./dist/Result.d.cts",
+        "default": "./dist/Result.cjs"
       },
-      "default": "./dist/main.mjs"
+      "default": "./dist/Result.mjs"
     },
     "./dist/*": {
       "types": "./dist/*.d.ts",
