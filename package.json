@@ -1,5 +1,5 @@
 {
-  "name": "result",
+  "name": "@jmjf/result",
   "version": "1.0.0",
   "description": "A simple Result (either) class for TypeScript projects",
   "types": "dist/main.d.ts",
