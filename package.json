@@ -1,0 +1,71 @@
+{
+  "name": "result",
+  "version": "0.0.1",
+  "description": "A simple Result (either) class for TypeScript projects",
+  "types": "dist/main.d.ts",
+  "type": "module",
+  "bin": "./dist/bin/cli.cjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/main.d.ts",
+        "default": "./dist/main.mjs"
+      },
+      "require": {
+        "types": "./dist/main.d.cts",
+        "default": "./dist/main.cjs"
+      },
+      "default": "./dist/main.mjs"
+    },
+    "./dist/*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "bin"
+  ],
+  "scripts": {
+    "build": "tsc && tsup",
+    "format": "npx biome format --write",
+    "lint": "npx biome lint",
+    "lint:fix": "npx biome lint --write",
+    "test": "c8 node --import ./tsnode-esm.mjs --test test/*"
+  },
+  "author": {
+    "name": "Jamee Mikell (https://github.com/jmjf)",
+    "email": "jamee.mikell@gmail.com",
+    "url": "https://github.com/jmjf"
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/jmjf/result",
+  "bugs": {
+    "url": "https://github.com/jmjf/result/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmjf/result.git"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^20.14.10",
+    "c8": "^10.1.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "ts-node-maintained": "^10.9.2",
+    "tsup": "^8.1.0",
+    "typescript": "^5.7.3"
+  },
+  "lint-staged": {
+    "**/*.{js,json}": [
+      "npm run lint:fix"
+    ]
+  }
+}
