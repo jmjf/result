@@ -41,7 +41,6 @@
     "url": "https://github.com/jmjf"
   },
   "publishConfig": {
-    "provenance": true,
     "access": "public"
   },
   "license": "MIT",
