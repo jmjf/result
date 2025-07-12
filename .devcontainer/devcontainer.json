@@ -1,0 +1,25 @@
+{
+	"name": "result",
+	"dockerComposeFile": ["node-dc-compose.yaml"],
+	"service": "node-dc-22",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"biomejs.biome",
+				"streetsidesoftware.code-spell-checker",
+				"ms-azuretools.vscode-docker",
+				"maattdd.gitless",
+				"ms-vscode.vscode-typescript-next",
+				"yzhang.markdown-all-in-one",
+				"yzane.markdown-pdf",
+				"bierner.markdown-mermaid",
+				"DavidAnson.vscode-markdownlint",
+				"Redocly.openapi-vs-code"
+			]
+		}
+	},
+	"forwardPorts": [],
+	"remoteUser": "node",
+	"postCreateCommand": "./.devcontainer/postCreateCommand.sh"
+}
