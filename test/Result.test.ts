@@ -23,60 +23,60 @@ test('errorResult returns the expected error value and value === null', () => {
 
 test('when ok, a resultified function returns a result with a value', () => {
 	function fn(a1: number): string {
-		return `${a1}`
+		return `${a1}`;
 	}
 
-	const testFn = resultify<typeof fn, Error>(fn)
-	const testVal = 42
+	const testFn = resultify<typeof fn, Error>(fn);
+	const testVal = 42;
 
 	const result = testFn(testVal);
 
 	assert.equal(result.error, null, 'error is null');
-	assert.equal(result.value, `${testVal}`, 'value is expected value')
-})
+	assert.equal(result.value, `${testVal}`, 'value is expected value');
+});
 
 test('when error, a resultified function returns a result with an error', () => {
 	const errMsg = 'test error';
 	function fn(a1: number): string {
-		throw new Error(errMsg)
+		throw new Error(errMsg);
 	}
 
-	const testFn = resultify<typeof fn, Error>(fn)
-	const testVal = 42
+	const testFn = resultify<typeof fn, Error>(fn);
+	const testVal = 42;
 
 	const result = testFn(testVal);
 
-	assert.equal(result.value, null, 'value is null')
-	if (result.error === null) assert.fail('error is null')
+	assert.equal(result.value, null, 'value is null');
+	if (result.error === null) assert.fail('error is null');
 	assert.equal(result.error.message, errMsg, 'error message is expected value');
-})
+});
 
 test('when ok, a resultified async function returns a Promised result with a value', async () => {
 	async function fn(a1: number): Promise<string> {
-		return `${a1}`
+		return `${a1}`;
 	}
 
-	const testFn = resultifyAsync<typeof fn, Error>(fn)
-	const testVal = 42
+	const testFn = resultifyAsync<typeof fn, Error>(fn);
+	const testVal = 42;
 
 	const result = await testFn(testVal);
 
 	assert.equal(result.error, null, 'error is null');
-	assert.equal(result.value, `${testVal}`, 'value is expected value')
-})
+	assert.equal(result.value, `${testVal}`, 'value is expected value');
+});
 
 test('when error, a resultified async function returns a Promised result with an error', async () => {
 	const errMsg = 'test error';
 	async function fn(a1: number): Promise<string> {
-		throw new Error(errMsg)
+		throw new Error(errMsg);
 	}
 
-	const testFn = resultifyAsync<typeof fn, Error>(fn)
-	const testVal = 42
+	const testFn = resultifyAsync<typeof fn, Error>(fn);
+	const testVal = 42;
 
 	const result = await testFn(testVal);
 
-	assert.equal(result.value, null, 'value is null')
-	if (result.error === null) assert.fail('error is null')
+	assert.equal(result.value, null, 'value is null');
+	if (result.error === null) assert.fail('error is null');
 	assert.equal(result.error.message, errMsg, 'error message is expected value');
-})
+});
